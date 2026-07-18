@@ -1,8 +1,28 @@
+# Virtual environments
 .venv/
+venv/
+
+# Python cache
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Environment variables
 .env
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+
+# IDE
+.vscode/
+.idea/
+
 .DS_Store
 local_snippet.py
