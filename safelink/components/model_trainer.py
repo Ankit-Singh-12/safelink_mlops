@@ -1,16 +1,16 @@
 import os
 import sys
 
-from networksecurity.exception.exception import NetworkSecurityException 
-from networksecurity.logging.logger import logging
+from safelink.exception.exception import SafeLinkException 
+from safelink.logging.logger import logging
 
-from networksecurity.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact
-from networksecurity.entity.config_entity import ModelTrainerConfig
+from safelink.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact
+from safelink.entity.config_entity import ModelTrainerConfig
 
-from networksecurity.utils.ml_utils.model.estimator import NetworkModel
-from networksecurity.utils.main_utils.utils import save_object,load_object
-from networksecurity.utils.main_utils.utils import load_numpy_array_data,evaluate_models
-from networksecurity.utils.ml_utils.metric.classification_metric import get_classification_score
+from safelink.utils.ml_utils.model.estimator import NetworkModel
+from safelink.utils.main_utils.utils import save_object,load_object
+from safelink.utils.main_utils.utils import load_numpy_array_data,evaluate_models
+from safelink.utils.ml_utils.metric.classification_metric import get_classification_score
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import r2_score
@@ -37,7 +37,7 @@ class ModelTrainer:
             self.model_trainer_config=model_trainer_config
             self.data_transformation_artifact=data_transformation_artifact
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise SafeLinkException(e,sys)
     
     def track_mlflow(self,best_model,classificationmetric):
         #mlflow.set_registry_uri("")
@@ -161,4 +161,4 @@ class ModelTrainer:
             return model_trainer_artifact
             
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise SafeLinkException(e,sys)
