@@ -7,7 +7,7 @@ from safelink.logging.logger import logging
 from safelink.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact
 from safelink.entity.config_entity import ModelTrainerConfig
 
-from safelink.utils.ml_utils.model.estimator import NetworkModel
+from safelink.utils.ml_utils.model.estimator import SafeLinkModel
 from safelink.utils.main_utils.utils import save_object,load_object
 from safelink.utils.main_utils.utils import load_numpy_array_data,evaluate_models
 from safelink.utils.ml_utils.metric.classification_metric import get_classification_score
@@ -127,8 +127,8 @@ class ModelTrainer:
         model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
         os.makedirs(model_dir_path,exist_ok=True)
 
-        Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
-        save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
+        Network_Model=SafeLinkModel(preprocessor=preprocessor,model=best_model)
+        save_object(self.model_trainer_config.trained_model_file_path,obj=SafeLinkModel)
         #model pusher
         save_object("final_model/model.pkl",best_model)
         

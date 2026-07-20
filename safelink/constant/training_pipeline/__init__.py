@@ -66,3 +66,12 @@ MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
 MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD: float = 0.05
 
 TRAINING_BUCKET_NAME = "safelink-bucket"
+
+"""
+Batch Prediction related constants
+"""
+FINAL_MODEL_DIR: str = "final_model"
+FINAL_PREPROCESSOR_FILE_PATH: str = os.path.join(FINAL_MODEL_DIR, "preprocessor.pkl")
+FINAL_MODEL_FILE_PATH: str = os.path.join(FINAL_MODEL_DIR, MODEL_FILE_NAME)
+PREDICTION_OUTPUT_DIR: str = "prediction_output"
+PREDICTION_OUTPUT_FILE_NAME: str = "output.csv"

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeLink — Phishing URL Detection</title>
+    <style>
+        :root {
+            --bg: 0F172A_1;
+            --card: 1E293B_1;
+            --accent: 38BDF8_1;
+            --accent-2: 6366F1_1;
+            --text: E2E8F0_1;
+            --muted: 94A3B8_1;
+            --border: 334155_1;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, 0F172A_1 0%, 1E1B4B_1 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        .container { width: 100%; max-width: 620px; }
+        header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 0.4rem;
+        }
+        .logo {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+        }
+        h1 { margin: 0; font-size: 1.9rem; font-weight: 700; }
+        .subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin: 0 0 2rem;
+            font-size: 1rem;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+        .card h2 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+        .card p.hint { color: var(--muted); margin: 0 0 1.5rem; font-size: 0.9rem; }
+        .drop {
+            border: 2px dashed var(--border);
+            border-radius: 14px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: border-color .2s, background .2s;
+            cursor: pointer;
+        }
+        .drop:hover { border-color: var(--accent); background: rgba(56,189,248,.05); }
+        .drop input { display: none; }
+        .drop .icon { font-size: 2.2rem; }
+        .drop .file-name { color: var(--accent); font-weight: 600; margin-top: .5rem; }
+        .actions { display: flex; gap: .75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        button, .btn {
+            flex: 1;
+            border: none;
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: transform .1s, opacity .2s;
+        }
+        button:hover, .btn:hover { transform: translateY(-1px); opacity: .92; }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+        .btn-predict {
+            width: 100%;
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            padding: 1rem;
+        }
+        .btn-secondary { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--border); }
+        footer { text-align: center; color: var(--muted); margin-top: 1.5rem; font-size: .82rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🔗</div>
+            <h1>SafeLink</h1>
+        </header>
+        <p class="subtitle">Machine-learning powered phishing URL detection</p>
+
+        <div class="card">
+            <h2>Analyze a dataset</h2>
+            <p class="hint">Upload a CSV of URL features to get phishing predictions.</p>
+
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <label class="drop" for="file-input">
+                    <div class="icon">📄</div>
+                    <div>Click to choose a CSV file</div>
+                    <div class="file-name" id="file-name"></div>
+                    <input id="file-input" type="file" name="file" accept=".csv" required>
+                </label>
+                <button type="submit" class="btn-primary btn-predict">🔍 Predict</button>
+                <div class="actions">
+                    <a href="/docs" class="btn btn-secondary">API Docs</a>
+                </div>
+            </form>
+        </div>
+
+        <footer>Powered by <strong>SafeLink</strong> · FastAPI + scikit-learn</footer>
+    </div>
+
+    <script>
+        const input = document.getElementById('file-input');
+        const label = document.getElementById('file-name');
+        input.addEventListener('change', () => {
+            label.textContent = input.files.length ? input.files[0].name : '';
+        });
+    </script>
+</body>
+</html>

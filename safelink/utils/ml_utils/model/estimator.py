@@ -6,7 +6,7 @@ import sys
 from safelink.exception.exception import SafeLinkException
 from safelink.logging.logger import logging
 
-class NetworkModel:
+class SafeLinkModel:
     def __init__(self,preprocessor,model):
         try:
             self.preprocessor = preprocessor
