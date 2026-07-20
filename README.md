@@ -4,11 +4,11 @@
 
 **An end-to-end Machine Learning system that detects phishing websites from URL features — served through a FastAPI web app and deployed to AWS with a full CI/CD pipeline.**
 
-[![Python](img.shields.io/badge/…/www.python.org)
-[![FastAPI](img.shields.io/badge/FastAPI-Serving-009688.svg)](https:/fastapi.tiangolo.com)
-[![MLflow](img.shields.io/badge/…/mlflow.org)
-[![AWS](img.shields.io/badge/…/aws.amazon.com)
-[![Docker](img.shields.io/badge/…/www.docker.com)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Serving-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2.svg?logo=mlflow&logoColor=white)](https://mlflow.org/)
+[![AWS](https://img.shields.io/badge/AWS-Deployment-232F3E.svg?logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
 
 </div>
 
